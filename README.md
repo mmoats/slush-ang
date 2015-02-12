@@ -1,4 +1,4 @@
-# slush-generator [![Build Status](https://secure.travis-ci.org/mattmoats/slush-ang.png?branch=master)](https://travis-ci.org/mattmoats/slush-ang) [![NPM version](https://badge-me.herokuapp.com/api/npm/slush-ang.png)](http://badges.enytc.com/for/npm/slush-ang)
+# slush-generator [![NPM version](https://badge-me.herokuapp.com/api/npm/slush-ang.png)](http://badges.enytc.com/for/npm/slush-ang)
 
 > Slush-Ang
 
@@ -33,36 +33,24 @@ Available commands
 `bower i angular angular-ui-router --save`
 
 
-> <!DOCTYPE html>
-
-> <html ng-app="angz">
-
-> <head lang="en">
-
-> >   <meta charset="UTF-8">
-
-> >   <title>Test Slush Ang</title>
-
-> </head>
-
-> <body>
-
-> >   <ui-view></ui-view>
-
-> >   <script src="bower_components/angular/angular.js"></script>
-
-> >   <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-
-> >   <script src="module.js"></script>
-
-> >   <script src="alpha.controller.js"></script>
-
-> >   <script src="beta.controller.js"></script>
-
-> </body>
-
-> </html>
-
+```
+<!DOCTYPE html>
+<html ng-app="module">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>Slush Ang</title>
+</head>
+<body>
+  <ui-view></ui-view>
+  
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="module.js"></script>
+  <script src="alpha.controller.js"></script>
+  <script src="beta.controller.js"></script>
+</body>
+</html>
+```
 
 ## Getting To Know Slush
 
