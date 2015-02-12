@@ -1,0 +1,43 @@
+{
+  "name": "slush-ang",
+  "description": "AngularJS CLI for modular components",
+  "version": "0.1.0",
+  "homepage": "https://github.com/mmoats/slush-ang",
+  "author": {
+    "name": "mmoats",
+    "email": "mattmoats@mattmoats.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mmoats/slush-ang.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mmoats/slush-ang/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/mmoats/slush-ang/blob/master/LICENSE"
+    }
+  ],
+  "main": "slushfile.js",
+  "engines": {
+    "node": ">= 0.10.26",
+    "npm": ">=2.1.16"
+  },
+  "scripts": {
+    "test": "echo \"No tests\""
+  },
+  "dependencies": {
+    "gulp": "^3.8.11",
+    "gulp-conflict": "^0.3.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-template": "^3.0.0",
+    "gulp-util": "^3.0.3",
+    "inquirer": "^0.8.0",
+    "slush": "^1.0.1"
+  },
+  "keywords": [
+    "slushgenerator"
+  ]
+}
