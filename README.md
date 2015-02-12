@@ -12,7 +12,7 @@ Install slush and slush-ang globally:
 ### Usage
 Use `slush ang` to scaffold out a new component
 
-Add `:controller` as a CLI to add to that component
+Add `:controller` or one of the commands below to add to that component
 
 Available commands
 
