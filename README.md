@@ -7,7 +7,7 @@
 
 Install slush and slush-ang globally:
 
-`npm i -g slush slush-ang`
+`npm i -g gulp slush slush-ang`
 
 ### Usage
 Use `slush ang` to scaffold out a new component
