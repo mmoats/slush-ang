@@ -6,8 +6,8 @@ angular.module('<%= moduleName %>')
     /**
      * Service broken out into an extension of the main module file.
      */
-    .service('<%= serviceName %>', [ , function () {
+    .service('<%= serviceName %>', function () {
         return {
 
         }
-    }]);
+    });

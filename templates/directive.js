@@ -6,11 +6,11 @@ angular.module('<%= moduleName %>')
     /**
      * Directive broken out into an extension of the main module file.
      */
-    .directive('<%= directiveName %>', [ ,function () {
+    .directive('<%= directiveName %>', function () {
         return {
             restrict: "A",
             link: function(scope, element, attributes, controller){
 
             }
         }
-    }]);
+    });

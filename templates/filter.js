@@ -6,8 +6,8 @@ angular.module('<%= moduleName %>')
     /**
      * Filter broken out into an extension of the main module file.
      */
-    .filter('<%= filterName %>', [ , function () {
+    .filter('<%= filterName %>', function () {
         return {
 
         }
-    }]);
+    });

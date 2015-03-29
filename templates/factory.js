@@ -6,8 +6,8 @@ angular.module('<%= moduleName %>')
     /**
      * Factory broken out into an extension of the main module file.
      */
-    .factory('<%= factoryName %>', [ , function () {
+    .factory('<%= factoryName %>', function () {
         return {
 
         }
-    }]);
+    });
