@@ -13,13 +13,17 @@ angular.module('<%= moduleName %>', [
 		$stateProvider
 			.state('component', {
 				abstract: true,
-				templateUrl: './module.partial.html',
+				templateProvider: ['$templateCache', function ($templateCache) {
+					return $templateCache.get('./module.partial.html')
+				}],
 				controller: '<%= moduleName %>Controller'
 			})
 
 		    /** Example state without params */
 			.state('component.alpha', {
-				templateUrl: './alpha.partial.html',
+				templateProvider: ['$templateCache', function ($templateCache) {
+					return $templateCache.get('./alpha.partial.html')
+				}],
 				controller: 'alphaController'
 			})
 
@@ -28,7 +32,9 @@ angular.module('<%= moduleName %>', [
                 params: {
                     data:'undefined'
                 },
-				templateUrl: './beta.partial.html',
+				templateProvider: ['$templateCache', function ($templateCache) {
+					return $templateCache.get('./beta.partial.html')
+				}],
 				controller: 'betaController'
 			});
 	}])
