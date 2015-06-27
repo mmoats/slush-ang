@@ -14,6 +14,8 @@ Use `slush ang` to scaffold out a new component
 
 Add `:controller` or one of the commands below to add to that component
 
+Add `:gulp` to include a gulp based build system and install deps
+
 Available commands
 
 `:module`
@@ -28,29 +30,8 @@ Available commands
 
 `:filter`
 
+`:gulp`
 
-### Bootstrap (if needed)
-`bower i angular angular-ui-router --save`
-
-
-```
-<!DOCTYPE html>
-<html ng-app="module">
-<head lang="en">
-  <meta charset="UTF-8">
-  <title>Slush Ang</title>
-</head>
-<body>
-  <ui-view></ui-view>
-  
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-  <script src="module.js"></script>
-  <script src="alpha.controller.js"></script>
-  <script src="beta.controller.js"></script>
-</body>
-</html>
-```
 
 ## Getting To Know Slush
 
