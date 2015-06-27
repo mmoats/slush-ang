@@ -14,7 +14,7 @@ angular.module('<%= moduleName %>', [
 			.state('component', {
 				abstract: true,
 				templateProvider: ['$templateCache', function ($templateCache) {
-					return $templateCache.get('./module.partial.html')
+					return $templateCache.get('<%= moduleName %>/<%= moduleName %>.partial.html')
 				}],
 				controller: '<%= moduleName %>Controller'
 			})
@@ -22,7 +22,7 @@ angular.module('<%= moduleName %>', [
 		    /** Example state without params */
 			.state('component.alpha', {
 				templateProvider: ['$templateCache', function ($templateCache) {
-					return $templateCache.get('./alpha.partial.html')
+					return $templateCache.get('<%= moduleName %>/alpha.partial.html')
 				}],
 				controller: 'alphaController'
 			})
@@ -33,7 +33,7 @@ angular.module('<%= moduleName %>', [
                     data:'undefined'
                 },
 				templateProvider: ['$templateCache', function ($templateCache) {
-					return $templateCache.get('./beta.partial.html')
+					return $templateCache.get('<%= moduleName %>/beta.partial.html')
 				}],
 				controller: 'betaController'
 			});

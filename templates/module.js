@@ -14,7 +14,7 @@ angular.module('<%= moduleName %>', [
             .state('component', {
                 abstract: true,
                 templateProvider: ['$templateCache', function ($templateCache) {
-                    return $templateCache.get('./<%= moduleName %>.partial.html')
+                    return $templateCache.get('<%= moduleName %>.partial.html')
                 }],
                 controller: '<%= moduleName %>Controller'
             });
