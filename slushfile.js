@@ -10,7 +10,8 @@ var gulp = require('gulp'),
     conflict = require('gulp-conflict'),
     template = require('gulp-template'),
     rename = require('gulp-rename'),
-    inquirer = require('inquirer');
+    inquirer = require('inquirer'),
+    install = require('gulp-install');
 
 gulp.task('default', function(done) {
     inquirer.prompt([{
@@ -42,6 +43,23 @@ gulp.task('module', function(done) {
             .pipe(rename(answers.moduleName + '.js'))
             .pipe(conflict('./'))
             .pipe(gulp.dest('./'))
+            .on('finish', function() {
+                done();
+            });
+    });
+});
+
+gulp.task('gulp', function(done) {
+    inquirer.prompt([{
+        name: 'moduleName',
+        message: 'Module Name?',
+        default: 'module'
+    }], function(answers) {
+        gulp.src(__dirname + '/gulp/**')
+            .pipe(template(answers))
+            .pipe(conflict('./'))
+            .pipe(gulp.dest('./'))
+            .pipe(install())
             .on('finish', function() {
                 done();
             });

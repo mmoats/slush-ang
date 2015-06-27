@@ -1,7 +1,7 @@
 {
   "name": "slush-ang",
   "description": "AngularJS CLI for modular components",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "homepage": "https://github.com/mmoats/slush-ang",
   "author": {
     "name": "mmoats",
@@ -31,6 +31,7 @@
   "dependencies": {
     "gulp": "^3.8.11",
     "gulp-conflict": "^0.3.0",
+    "gulp-install": "^0.4.0",
     "gulp-rename": "^1.2.0",
     "gulp-template": "^3.0.0",
     "gulp-util": "^3.0.3",
@@ -38,6 +39,9 @@
     "slush": "^1.0.1"
   },
   "keywords": [
-    "slushgenerator"
+    "slushgenerator",
+    "browser-sync",
+    "angular-ui-router",
+    "angularjs"
   ]
 }
