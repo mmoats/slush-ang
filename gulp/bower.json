@@ -1,5 +1,5 @@
 {
-  "name": "Gulp Ang",
+  "name": "<%= moduleName %>",
   "version": "0.1.0",
   "private": true,
   "authors": [

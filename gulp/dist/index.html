@@ -9,14 +9,14 @@
 </head>
 <body>
 
-	<div ng-app="gulp-ang">
+	<div ng-app="<%= moduleName %>">
 		<ui-view></ui-view>
 	</div>
 
 	<script src="lib/angular.js"></script>
 	<script src="lib/angular-ui-router.js"></script>
 
-	<script src="js/gulp-ang.base.js"></script>
+	<script src="js/<%= moduleName %>.base.js"></script>
 
 
 </body>

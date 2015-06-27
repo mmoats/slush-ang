@@ -1,5 +1,5 @@
 {
-	"module": "gulp-ang",
+	"module": "<%= moduleName %>",
 	"deps" : [
 		"ui.router"
 	]
