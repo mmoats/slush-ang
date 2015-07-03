@@ -25,7 +25,7 @@ gulp.task('default', function(done) {
                 path.dirname += '/' + answers.moduleName;
             }))
             .pipe(conflict('./'))
-            .pipe(gulp.dest('./'))
+            .pipe(gulp.dest('./src'))
             .on('finish', function() {
                 done();
             });

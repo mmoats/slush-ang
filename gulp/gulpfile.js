@@ -102,6 +102,9 @@ gulp.task('bower-files', function () {
 		.pipe(gulp.dest('./dist/lib'));
 });
 
+// All tasks but browser-sync
+gulp.task('build', ['sass', 'javascript', 'base', 'bower-files', 'ng-templates']);
+
 // Default Task + Watches
 gulp.task('default', ['browser-sync', 'sass', 'javascript', 'base', 'bower-files', 'ng-templates'], function () {
 	gulp.watch(paths.js, ['javascript']);

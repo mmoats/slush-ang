@@ -1,22 +1,21 @@
-# slush-generator [![NPM version](https://badge-me.herokuapp.com/api/npm/slush-ang.png)](http://badges.enytc.com/for/npm/slush-ang)
+# slush-Ang [![NPM version](https://badge-me.herokuapp.com/api/npm/slush-ang.png)](http://badges.enytc.com/for/npm/slush-ang)
 
-> Slush-Ang
-
+> Slush-Ang is a pet project I have tried to grow in to something a little more useful, Any input is appreciate!
 
 ## Getting Started
 
 Install slush and slush-ang globally:
 
-`npm i -g gulp slush slush-ang`
+`npm i -g gulp slush slush-ang bower browser-sync`
 
-### Usage
+### CLI Usage
 Use `slush ang` to scaffold out a new component
-
-Add `:controller` or one of the commands below to add to that component
 
 Add `:gulp` to include a gulp based build system and install deps
 
-Available commands
+Add `:controller` or one of the commands below to add to that component
+
+Available commands:
 
 `:module`
 
@@ -30,8 +29,15 @@ Available commands
 
 `:filter`
 
-`:gulp`
+### Example Usage (quick write up)
 
+`mkdir angularmodule && cd $_`
+
+`slush ang:gulp`
+
+`slush ang` to add another component to src directory.  remember to add to base_config.json as a dependency
+
+or `gulp` to start with a single module base module
 
 ## Getting To Know Slush
 
