@@ -2,7 +2,7 @@
 	"module": "<%= moduleName %>",
 	"deps": [
 		"ui.router",
-		"component" // TODO: Dynamically add with slush ang
+		"component"
 	],
 	"constant": {
 		"local": {

@@ -1,7 +1,5 @@
 {
-	"public": [
-		"./dist/clientlibs"
-	],
+	"public": "./dist/clientlibs",
 	"assets": [
 		"./vendor/clientlibs/**"
 	],
