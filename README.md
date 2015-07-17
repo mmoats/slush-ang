@@ -1,6 +1,6 @@
 # slush-Ang [![NPM version](https://badge-me.herokuapp.com/api/npm/slush-ang.png)](http://badges.enytc.com/for/npm/slush-ang)
 
-> Slush-Ang is a pet project I have tried to grow in to something a little more useful, Any input is appreciate!
+> Slush-Ang is a pet project I have tried to grow in to something a little more useful, Any input is appreciated!
 
 ## Getting Started
 
