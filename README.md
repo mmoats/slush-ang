@@ -1,6 +1,6 @@
 # slush-Ang [![NPM version](https://badge-me.herokuapp.com/api/npm/slush-ang.png)](http://badges.enytc.com/for/npm/slush-ang)
 
-> Slush-Ang is a pet project that has grown in to something useful!
+> Slush-Ang is a pet project I have tried to grow in to something a little more useful, Any input is appreciate!
 
 ## Getting Started
 
@@ -29,7 +29,7 @@ Available commands:
 
 `:filter`
 
-### Example Usage (quick write up)
+### Example Usage Workflow (quick write up)
 
 `mkdir angularmodule && cd $_`
 
