@@ -1,6 +1,6 @@
 # slush-Ang [![NPM version](https://badge-me.herokuapp.com/api/npm/slush-ang.png)](http://badges.enytc.com/for/npm/slush-ang)
 
-> Slush-Ang is a pet project I have tried to grow in to something a little more useful, Any input is appreciate!
+> Slush-Ang is a pet project that has grown in to something useful!
 
 ## Getting Started
 
@@ -37,7 +37,9 @@ Available commands:
 
 `slush ang` to add another component to src directory.  remember to add to base_config.json as a dependency
 
-or `gulp` to start with a single module base module
+or `gulp` to start pointed at local environment
+
+or `NODE_ENV=qa gulp` for different environment
 
 ## Getting To Know Slush
 

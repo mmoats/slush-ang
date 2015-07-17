@@ -1,6 +1,24 @@
 {
 	"module": "<%= moduleName %>",
-	"deps" : [
-		"ui.router"
-	]
+	"deps": [
+		"ui.router",
+		"component" // TODO: Dynamically add with slush ang
+	],
+	"constant": {
+		"local": {
+			"EnvironmentConfig": {
+				"api": "http://localhost:9000"
+			}
+		},
+		"qa": {
+			"EnvironmentConfig": {
+				"api": "http://qa.url.com"
+			}
+		},
+		"production": {
+			"EnvironmentConfig": {
+				"api": "http://production.url.com"
+			}
+		}
+	}
 }

@@ -17,5 +17,13 @@
   "dependencies": {
     "angular": "~1.4.0",
     "angular-ui-router": "~0.2.15"
+  },
+  "overrides": {
+    "angular": {
+      "main": "./angular.min.js"
+    },
+    "angular-ui-router": {
+      "main": "./release/angular-ui-router.min.js"
+    }
   }
 }

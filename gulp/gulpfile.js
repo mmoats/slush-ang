@@ -1,4 +1,4 @@
-// Include Our Plugins
+// Include Plugins
 var gulp = require('gulp'),
 	browserSync = require('browser-sync').create(),
 	sass = require('gulp-sass'),
@@ -11,7 +11,9 @@ var gulp = require('gulp'),
 	mainBowerFiles = require('main-bower-files'),
 	ngAnnotate = require('gulp-ng-annotate'),
 	minifyCSS = require('gulp-minify-css'),
-	plumber = require('gulp-plumber');
+	plumber = require('gulp-plumber'),
+	template = require('gulp-template'),
+	proxyMiddleware = require('http-proxy-middleware');
 
 
 // Multiple Environments
@@ -19,26 +21,22 @@ var gulp = require('gulp'),
 // NODE_ENV=production gulp
 var env = process.env.NODE_ENV || 'local';
 
-// Base Angular Module + Dependencies
+// Configuration
 var baseConfig = require('./src/base_config.json');
-var envConfig = require('./src/env_config.json');
-
-// Paths
-var paths = {
-	js: [
-		'./src/**/module.js',
-		'./src/**/*.js'
-	],
-	sass: ['./src/**/*.scss'],
-	html: ['./dist/index.html'],
-	partials: ['./src/**/*.html']
-};
+var gulpConfig = require('./src/gulp_config.json');
 
 // Static server
 gulp.task('browser-sync', function() {
 	browserSync.init({
 		server: {
-			baseDir: "./dist"
+			baseDir: "./dist",
+			//https: true,
+			middleware: [
+				proxyMiddleware('/api', {
+					target: baseConfig['constant'][env]['EnvironmentConfig']['api'],
+					changeOrigin: true
+				})
+			]
 		}
 	});
 });
@@ -47,16 +45,16 @@ gulp.task('browser-sync', function() {
 gulp.task('base', function () {
 	return ngConstant({
 		name: baseConfig['module'],
-		constants: envConfig[env],
+		constants: baseConfig['constant'][env],
 		deps: baseConfig['deps'],
 		stream: true
 	}).pipe(rename(baseConfig['module']+'.base.js'))
-		.pipe(gulp.dest('./dist/js'));
+		.pipe(gulp.dest(gulpConfig.public + '/js'));
 });
 
 // Compile Our Sass
 gulp.task('sass', function() {
-	return gulp.src(paths.sass)
+	return gulp.src(gulpConfig.sass)
 		.pipe(sourcemaps.init())
 		.pipe(plumber({
 			errorHandler: function (err) {
@@ -65,34 +63,34 @@ gulp.task('sass', function() {
 			}
 		}))
 		.pipe(sass().on('error', sass.logError))
-		.pipe(concat(baseConfig['module']+'.all.css'))
-		.pipe(gulp.dest('./dist/css'))
-		.pipe(rename(baseConfig['module']+'.all.min.css'))
+		.pipe(concat(baseConfig['module'] + '.all.css'))
+		.pipe(gulp.dest(gulpConfig.public + '/css'))
+		.pipe(rename(baseConfig['module'] + '.all.min.css'))
 		.pipe(minifyCSS())
 		.pipe(sourcemaps.write('maps'))
-		.pipe(gulp.dest('./dist/css'))
+		.pipe(gulp.dest(gulpConfig.public + '/css'))
 		.pipe(browserSync.stream());
 });
 
 // Concatenate & Minify JS
 gulp.task('javascript', function() {
-	return gulp.src(paths.js)
+	return gulp.src(gulpConfig.js)
 		.pipe(sourcemaps.init())
 		.pipe(ngAnnotate())
 		.pipe(concat(baseConfig['module']+'.all.js'))
-		.pipe(gulp.dest('./dist/js'))
+		.pipe(gulp.dest(gulpConfig.public+'/js'))
 		.pipe(rename(baseConfig['module']+'.all.min.js'))
 		.pipe(uglify())
 		.pipe(sourcemaps.write('maps'))
-		.pipe(gulp.dest('./dist/js'))
+		.pipe(gulp.dest(gulpConfig.public + '/js'))
 		.pipe(browserSync.stream());
 });
 
 // Compile Angular Templates
 gulp.task('ng-templates', function () {
-	return gulp.src(paths.partials)
+	return gulp.src(gulpConfig.partials)
 		.pipe(templateCache({"filename":baseConfig['module']+".partials.js","module": baseConfig['module']}))
-		.pipe(gulp.dest('./dist/js'))
+		.pipe(gulp.dest(gulpConfig.public + '/js'))
 		.pipe(browserSync.stream());
 });
 
@@ -102,12 +100,40 @@ gulp.task('bower-files', function () {
 		.pipe(gulp.dest('./dist/lib'));
 });
 
-// All tasks but browser-sync
-gulp.task('build', ['sass', 'javascript', 'base', 'bower-files', 'ng-templates']);
+// Partial for AEM
+gulp.task('component-partial', function () {
+	return gulp.src('./src/module.html')
+		.pipe(template({module: baseConfig['module']}))
+		.pipe(rename(baseConfig['module'] + '.html'))
+		.pipe(gulp.dest('./dist/component/'+ baseConfig['module']));
+});
+
+// Assets for AEM clientlibs
+gulp.task('assets', function () {
+	return gulp.src(gulpConfig.assets)
+		.pipe(gulp.dest(gulpConfig.public))
+});
+
+// Dev index for component development
+gulp.task('dev-index', function () {
+	return gulp.src('./src/index.html')
+		.pipe(template({module: baseConfig['module']}))
+		.pipe(gulp.dest('./dist'));
+});
+
+// Third party libs not in bower (for dev)
+gulp.task('dev-libs', function () {
+	return gulp.src(gulpConfig.devlibs)
+		.pipe(gulp.dest('./dist/lib'));
+});
+
+// Build deploy code
+gulp.task('build', ['sass', 'javascript', 'base', 'ng-templates', 'component-partial', 'assets']);
 
 // Default Task + Watches
-gulp.task('default', ['browser-sync', 'sass', 'javascript', 'base', 'bower-files', 'ng-templates'], function () {
-	gulp.watch(paths.js, ['javascript']);
-	gulp.watch(paths.sass, ['sass']);
-	gulp.watch([paths.html, paths.partials], ['ng-templates']);
+gulp.task('default', ['browser-sync', 'sass', 'javascript', 'base', 'ng-templates', 'bower-files', 'component-partial', 'assets', 'dev-index', 'dev-libs'], function () {
+	gulp.watch(gulpConfig.js, ['javascript']);
+	gulp.watch(gulpConfig.sass, ['sass']);
+	gulp.watch([gulpConfig.html, gulpConfig.partials], ['ng-templates']);
+	gulp.watch(gulpConfig.assets, ['assets']);
 });

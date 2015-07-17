@@ -1,0 +1,25 @@
+{
+	"public": [
+		"./dist/clientlibs"
+	],
+	"assets": [
+		"./vendor/clientlibs/**"
+	],
+	"js": [
+		"./src/**/module.js",
+		"./src/**/*.js",
+		"./src/**/**/*.js"
+	],
+	"partials": [
+		"./src/**/*.html"
+	],
+	"sass": [
+		"./src/**/*.scss"
+	],
+	"html": [
+		"./dist/index.html"
+	],
+	"devlibs": [
+		"./vendor/lib/**"
+	]
+}

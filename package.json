@@ -1,7 +1,7 @@
 {
   "name": "slush-ang",
   "description": "AngularJS CLI for modular components",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "homepage": "https://github.com/mmoats/slush-ang",
   "author": {
     "name": "mmoats",
