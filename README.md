@@ -1,4 +1,4 @@
-# slush-Ang [![NPM version](https://badge-me.herokuapp.com/api/npm/slush-ang.png)](http://badges.enytc.com/for/npm/slush-ang)
+# slush-Ang [![npm version](https://badge.fury.io/js/slush-ang.svg)](http://badge.fury.io/js/slush-ang)
 
 > Slush-Ang is a pet project I have tried to grow in to something a little more useful, Any input is appreciated!
 
@@ -11,11 +11,11 @@ Install slush and slush-ang globally:
 ### CLI Usage
 Use `slush ang` to scaffold out a new component
 
-Add `:gulp` to include a gulp based build system and install deps
+Use `slush ang:gulp` to include a gulp based build system and install deps
 
-Add `:controller` or one of the commands below to add to that component
+Use `slush ang:controller` or one of the commands below to add to that component (Typically not needed)
 
-Available commands:
+Available commands(Optional):
 
 `:module`
 
@@ -29,25 +29,15 @@ Available commands:
 
 `:filter`
 
-### Example Usage Workflow (quick write up)
+### Example Usage Workflow (quick start) ** see <a href="https://github.com/mmoats/slush-ang/blob/master/gulp/README.md">gulp/README.md</a> for more info **
 
 `mkdir angularmodule && cd $_`
 
 `slush ang:gulp`
 
-`slush ang` to add another component to src directory.  remember to add to base_config.json as a dependency
-
 or `gulp` to start pointed at local environment
 
 or `NODE_ENV=qa gulp` for different environment
-
-## Getting To Know Slush
-
-Slush is a tool that uses Gulp for project scaffolding.
-
-Slush does not contain anything "out of the box", except the ability to locate installed slush generators and to run them with liftoff.
-
-To find out more about Slush, check out the [documentation](https://github.com/klei/slush).
 
 ## Contributing
 
