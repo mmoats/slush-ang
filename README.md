@@ -1,17 +1,17 @@
 # slush-Ang [![npm version](https://badge.fury.io/js/slush-ang.svg)](http://badge.fury.io/js/slush-ang)
 
-> Slush-Ang is a pet project I have tried to grow in to something a little more useful, Any input is appreciated!
+> Slush-Ang is a pet project that has grown in to something useful
 
 ## Getting Started
 
-Install slush and slush-ang globally:
+Install slush and slush-ang:
 
 `npm i -g gulp slush slush-ang bower browser-sync`
 
 ### CLI Usage
 Use `slush ang` to scaffold out a new component
 
-Use `slush ang:gulp` to include a gulp based build system and install deps
+Use `slush ang:gulp` to include a gulp based build system and install deps  ** see <a href="https://github.com/mmoats/slush-ang/blob/master/gulp/README.md">gulp/README.md</a> for more info **
 
 Use `slush ang:controller` or one of the commands below to add to that component (Typically not needed)
 
@@ -29,7 +29,7 @@ Available commands(Optional):
 
 `:filter`
 
-### Example Usage Workflow (quick start) ** see <a href="https://github.com/mmoats/slush-ang/blob/master/gulp/README.md">gulp/README.md</a> for more info **
+### Example Usage Workflow (quick start)
 
 `mkdir angularmodule && cd $_`
 
