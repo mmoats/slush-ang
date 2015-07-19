@@ -55,7 +55,7 @@ gulp.task('gulp', function(done) {
         message: 'Module Name?',
         default: 'module'
     }], function(answers) {
-        gulp.src([__dirname + '/gulp/**', __dirname + '/gulp/.gitignore'])
+        gulp.src([__dirname + '/gulp/**', __dirname + '/gulp/.*'])
             .pipe(template(answers))
             .pipe(conflict('./'))
             .pipe(gulp.dest('./'))
