@@ -11,28 +11,27 @@
     |-- bower.json					// dependencies, bower main file overrides
     |-- gulpfile.js					// Gulp Tasks
     |-- package.json				//
-    |-- dist
-    |   |-- index.html
-    |   |-- clientlibs
-    |       |-- css
+    |-- dist						// build directory
+    |   |-- index.html					// Index for development
+    |   |-- clientlibs				// Public folder, Can change in gulp_config.json
+    |       |-- css					// Built CSS files from src/component/*.scss
     |       |   |-- moduleName.all.css
     |       |   |-- moduleName.all.min.css
-    |       |   |-- main.css
     |       |   |-- maps
     |       |       |-- moduleName.all.min.css.map
-    |       |-- images
+    |       |-- images				// Images from vendor/clientlibs/images/*.*
     |       |   |-- ajax-loader.gif
-    |       |-- js
+    |       |-- js					// Built JS files from src
     |           |-- moduleName.all.js
     |           |-- moduleName.all.min.js
     |           |-- moduleName.base.js
     |           |-- moduleName.partials.js
     |           |-- maps
     |               |-- moduleName.all.min.js.map
-    |   |-- component
+    |   |-- component				// component partial file for CMS
     |       |-- moduleName
     |           |-- moduleName.html
-    |   |-- lib
+    |   |-- lib						// Bower + Third party libs
     |       |-- angular-ngmodules.js
     |       |-- angular-ui-router.min.js
     |       |-- angular.min.js
@@ -49,11 +48,11 @@
     |       |-- component.scss			// Example scss file
     |       |-- module.js
     |       |-- module.partial.html
-    |-- vendor
-        |-- clientlibs
+    |-- vendor						// Third party files
+        |-- clientlibs					// Everything here gets put in dist/clientlibs
         |   |-- images
         |       |-- ajax-loader.gif
-        |-- lib
+        |-- lib							// not in bower libs
             |-- angular-ngmodules.js
 ```
 
