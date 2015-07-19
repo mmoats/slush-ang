@@ -10,7 +10,7 @@
     |-- README.md							// This file ;)
     |-- bower.json							// dependencies, bower main file overrides
     |-- gulpfile.js							// Gulp Tasks
-    |-- package.json						//
+    |-- package.json						// npm dependencies
     |-- dist								// build directory
     |   |-- index.html							// Index for development
     |   |-- clientlibs						// Public folder, Can change in gulp_config.json
@@ -19,7 +19,7 @@
     |       |   |-- moduleName.all.min.css
     |       |   |-- maps
     |       |       |-- moduleName.all.min.css.map
-    |       |-- images						// Images from vendor/clientlibs/images/*.*
+    |       |-- images
     |       |   |-- ajax-loader.gif
     |       |-- js							// Built JS files from src
     |           |-- moduleName.all.js
