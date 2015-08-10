@@ -14,7 +14,7 @@
 					.state('<%= moduleName %>', {
 						abstract: true,
 						templateProvider: ['$templateCache', function ($templateCache) {
-							return $templateCache.get('<%= moduleName %>/<%= moduleName %>.partial.html')
+							return $templateCache.get('component/component.partial.html')
 						}],
 						controller: '<%= moduleName %>Controller'
 					})
