@@ -1,16 +1,18 @@
-/**
- * An extension of the main module. Extensions cannot define dependencies!
- */
-angular.module('<%= moduleName %>')
+(function () {
+	'use strict';
 
-    /**
-     * Directive broken out into an extension of the main module file.
-     */
-    .directive('<%= directiveName %>', function () {
-        return {
-            restrict: "A",
-            link: function(scope, element, attributes, controller){
+	angular
+		.module('<%= moduleName %>')
+			.directive('<%= directiveName %>', <%= directiveName %>);
 
-            }
-        }
-    });
+			function <%= directiveName %>() {
+				return {
+					require: '?ngModel',
+					priority: 1000,
+					link: function (scope, element, attrs, ngModelCtrl) {
+
+					}
+				}
+			}
+
+})();

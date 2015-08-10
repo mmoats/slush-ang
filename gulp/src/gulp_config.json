@@ -1,10 +1,11 @@
 {
-	"public": "./dist/clientlibs",
+	"public": "./dist",
+	"api_proxy": "/api",
 	"assets": [
-		"./vendor/clientlibs/**"
+		"./vendor/**"
 	],
 	"js": [
-		"./src/**/module.js",
+		"./src/**/*.module.js",
 		"./src/**/*.js",
 		"./src/**/**/*.js"
 	],
@@ -15,9 +16,6 @@
 		"./src/**/*.scss"
 	],
 	"html": [
-		"./dist/index.html"
-	],
-	"devlibs": [
-		"./vendor/lib/**"
+		"./src/index.html"
 	]
 }

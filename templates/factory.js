@@ -1,13 +1,14 @@
-/**
- * An extension of the main module. Extensions cannot define dependencies!
- */
-angular.module('<%= moduleName %>')
+(function () {
+	'use strict';
 
-    /**
-     * Factory broken out into an extension of the main module file.
-     */
-    .factory('<%= factoryName %>', function () {
-        return {
+	angular
+		.module('<%= moduleName %>')
+			.factory('<%= factoryName %>', < %= factoryName % >);
 
-        }
-    });
+			function <%= factoryName % >() {
+				return {
+
+				}
+			}
+
+})();

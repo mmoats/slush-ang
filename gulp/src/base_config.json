@@ -1,5 +1,5 @@
 {
-	"module": "<%= moduleName %>",
+	"module": "angular.material",
 	"deps": [
 		"ui.router",
 		"component"

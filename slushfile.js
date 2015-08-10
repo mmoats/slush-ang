@@ -40,7 +40,7 @@ gulp.task('module', function(done) {
     }], function(answers) {
         gulp.src(__dirname + '/templates/module.js')
             .pipe(template(answers))
-            .pipe(rename(answers.moduleName + '.js'))
+            .pipe(rename(answers.moduleName + 'module.js'))
             .pipe(conflict('./'))
             .pipe(gulp.dest('./'))
             .on('finish', function() {
@@ -170,3 +170,5 @@ gulp.task('filter', function(done) {
             });
     });
 });
+
+//TODO: Add Module name to individual template files via rename

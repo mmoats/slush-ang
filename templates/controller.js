@@ -1,11 +1,14 @@
-/**
- * An extension of the main module. Extensions cannot define dependencies!
- */
-angular.module('<%= moduleName %>')
+(function () {
+	'use strict';
 
-    /**
-     * Controller broken out into an extension of the main module file.
-     */
-    .controller('<%= controllerName %>', ['$scope', function($scope) {
+	angular
+		.module('<%= moduleName %>')
+			.controller('<%= controllerName %>', <%= controllerName %>);
 
-    }]);
+			<%= controllerName %>.$inject = ['$scope'];
+
+			function <%= controllerName %>($scope) {
+				$scope.example = 'Parent controller';
+			}
+
+}());

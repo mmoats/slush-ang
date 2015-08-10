@@ -29,10 +29,10 @@ var gulpConfig = require('./src/gulp_config.json');
 gulp.task('browser-sync', function() {
 	browserSync.init({
 		server: {
-			baseDir: "./dist",
+			baseDir: gulpConfig.public,
 			//https: true,
 			middleware: [
-				proxyMiddleware('/api', {
+				proxyMiddleware(gulpConfig.api_proxy, {
 					target: baseConfig['constant'][env]['EnvironmentConfig']['api'],
 					changeOrigin: true
 				})
@@ -59,6 +59,7 @@ gulp.task('sass', function() {
 		.pipe(plumber({
 			errorHandler: function (err) {
 				browserSync.notify(err.message);
+				console.log(err.message);
 				this.emit('end');
 			}
 		}))
@@ -76,6 +77,13 @@ gulp.task('sass', function() {
 gulp.task('javascript', function() {
 	return gulp.src(gulpConfig.js)
 		.pipe(sourcemaps.init())
+		.pipe(plumber({
+			errorHandler: function (err) {
+				browserSync.notify(err.message);
+				console.log(err.message);
+				this.emit('end');
+			}
+		}))
 		.pipe(ngAnnotate())
 		.pipe(concat(baseConfig['module']+'.all.js'))
 		.pipe(gulp.dest(gulpConfig.public+'/js'))
@@ -97,43 +105,37 @@ gulp.task('ng-templates', function () {
 // Grab bower main files
 gulp.task('bower-files', function () {
 	return gulp.src(mainBowerFiles())
-		.pipe(gulp.dest('./dist/lib'));
+		.pipe(gulp.dest(gulpConfig.public + '/lib'));
 });
 
-// Partial for AEM
+// Assets for public
+gulp.task('assets', function () {
+	return gulp.src(gulpConfig.assets)
+		.pipe(gulp.dest(gulpConfig.public))
+});
+
+// Partial for CMS
 gulp.task('component-partial', function () {
 	return gulp.src('./src/module.html')
 		.pipe(template({module: baseConfig['module']}))
 		.pipe(rename(baseConfig['module'] + '.html'))
-		.pipe(gulp.dest('./dist/component/'+ baseConfig['module']));
-});
-
-// Assets for AEM clientlibs
-gulp.task('assets', function () {
-	return gulp.src(gulpConfig.assets)
-		.pipe(gulp.dest(gulpConfig.public))
+		.pipe(gulp.dest(gulpConfig.public));
 });
 
 // Dev index for component development
 gulp.task('dev-index', function () {
 	return gulp.src('./src/index.html')
 		.pipe(template({module: baseConfig['module']}))
-		.pipe(gulp.dest('./dist'));
-});
-
-// Third party libs not in bower (for dev)
-gulp.task('dev-libs', function () {
-	return gulp.src(gulpConfig.devlibs)
-		.pipe(gulp.dest('./dist/lib'));
+		.pipe(gulp.dest(gulpConfig.public));
 });
 
 // Build deploy code
-gulp.task('build', ['sass', 'javascript', 'base', 'ng-templates', 'component-partial', 'assets']);
+gulp.task('build', ['base', 'sass', 'javascript', 'ng-templates', 'component-partial', 'assets']);
 
 // Default Task + Watches
-gulp.task('default', ['browser-sync', 'sass', 'javascript', 'base', 'ng-templates', 'bower-files', 'component-partial', 'assets', 'dev-index', 'dev-libs'], function () {
+gulp.task('default', ['browser-sync', 'base', 'sass', 'javascript', 'ng-templates', 'bower-files', 'assets', 'component-partial', 'dev-index'], function () {
 	gulp.watch(gulpConfig.js, ['javascript']);
 	gulp.watch(gulpConfig.sass, ['sass']);
-	gulp.watch([gulpConfig.html, gulpConfig.partials], ['ng-templates']);
+	gulp.watch([gulpConfig.html, gulpConfig.partials], ['ng-templates', 'dev-index']);
 	gulp.watch(gulpConfig.assets, ['assets']);
 });
