@@ -11,25 +11,24 @@
     |-- bower.json							// dependencies, bower main file overrides
     |-- gulpfile.js							// Gulp Tasks
     |-- package.json						// npm dependencies
-    |-- dist								// build directory
+    |-- dist								// Public folder, Can change in gulp_config.json
     |   |-- index.html						// Index for development
     |   |-- moduleName.html					// component partial file for CMS
-    |   |-- public							// Public folder, Can change in gulp_config.json
-    |       |-- css							// Built CSS files from src/component/*.scss
-    |       |   |-- moduleName.all.css
-    |       |   |-- moduleName.all.min.css
-    |       |   |-- maps
-    |       |       |-- moduleName.all.min.css.map
-    |       |-- js							// Built JS files from src
-    |           |-- moduleName.all.js
-    |           |-- moduleName.all.min.js
-    |           |-- moduleName.base.js
-    |           |-- moduleName.partials.js
-    |           |-- maps
-    |               |-- moduleName.all.min.js.map
-    |   	|-- lib								// Bower + Third party libs
-    |       	|-- angular-ui-router.min.js
-    |       	|-- angular.min.js
+    |   |-- css							// Built CSS files from src/component/*.scss
+    |   |   |-- moduleName.all.css
+    |   |   |-- moduleName.all.min.css
+    |   |   |-- maps
+    |   |       |-- moduleName.all.min.css.map
+    |   |-- js							// Built JS files from src
+    |       |-- moduleName.all.js
+    |       |-- moduleName.all.min.js
+    |       |-- moduleName.base.js
+    |       |-- moduleName.partials.js
+    |       |-- maps
+    |           |-- moduleName.all.min.js.map
+    |	|-- lib								// Bower + Third party libs
+    |  	|-- angular-ui-router.min.js
+    |   |-- angular.min.js
     |-- src									// File structure to be built to dist directory
     |   |-- base_config.json					// ModuleName, dependencies, environment config
     |   |-- gulp_config.json					// Configuration for tasks
