@@ -5,18 +5,18 @@
 	<meta name="viewport" content="width=device-width">
 	<meta name=“viewport” content="initial-scale=1.0">
 	<title>Class Schedules</title>
-	<link rel="stylesheet" href="css/<%= module %>.all.min.css"/>
+	<link rel="stylesheet" href="css/<%= moduleName %>.all.min.css"/>
 </head>
 <body>
-<div ng-app="<%= module %>" ng-strict-di>
+<div ng-app="<%= moduleName %>" ng-strict-di>
 	<ui-view></ui-view>
 </div>
 
 <script src="lib/angular.min.js"></script>
 <script src="lib/angular-ui-router.min.js"></script>
 
-<script src="js/<%= module %>.base.js"></script>
-<script src="js/<%= module %>.all.min.js"></script>
-<script src="js/<%= module %>.partials.js"></script>
+<script src="js/<%= moduleName %>.base.js"></script>
+<script src="js/<%= moduleName %>.all.min.js"></script>
+<script src="js/<%= moduleName %>.partials.js"></script>
 </body>
 </html>
