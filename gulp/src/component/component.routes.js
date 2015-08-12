@@ -16,8 +16,10 @@
 						templateProvider: ['$templateCache', function ($templateCache) {
 							return $templateCache.get('component/component.partial.html')
 						}],
-						controller: '<%= moduleName %>Controller'
+						controller: '<%= moduleName %>Controller',
+						controllerAs: 'vm'
 					})
+					// throw away child state example
 					.state('<%= moduleName %>.alpha', {
 						template: '<div>{{ test }}</div>',
 						controller: function ($scope) {
@@ -30,4 +32,4 @@
 				$state.go('<%= moduleName %>.alpha');
 			}
 
-}());
+})();

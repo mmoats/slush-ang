@@ -11,23 +11,18 @@
 
 			function Routes($stateProvider) {
 				$stateProvider
-					.state('<%= moduleName %>', {
+					.state('<%= routeName %>', {
 						abstract: true,
 						templateProvider: ['$templateCache', function ($templateCache) {
-							return $templateCache.get('component/component.partial.html')
+							return $templateCache.get('<%= routeName %>/<%= routeName %>.partial.html')
 						}],
-						controller: 'componentController'
-					})
-					.state('<%= moduleName %>.example', {
-						template: '<div>{{ test }}</div>',
-						controller: function ($scope) {
-							$scope.test = "testing";
-						}
+						controller: '<%= moduleName %>Controller',
+						controllerAs: 'vm'
 					})
 			}
 
 			function RouteDefault($state) {
-				$state.go('<%= moduleName %>.example');
+				//$state.go('<%= routeName %>.childstate');
 			}
 
-}());
+})();

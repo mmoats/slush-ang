@@ -14,22 +14,20 @@ var gulp = require('gulp'),
     install = require('gulp-install');
 
 gulp.task('default', function(done) {
-    inquirer.prompt([{
-        name: 'moduleName',
-        message: 'Module Name?',
-        default: 'module'
-    }], function(answers) {
-        gulp.src(__dirname + '/module/**')
-            .pipe(template(answers))
-            .pipe(rename(function(path) {
-                path.dirname += '/' + answers.moduleName;
-            }))
-            .pipe(conflict('./'))
-            .pipe(gulp.dest('./src'))
-            .on('finish', function() {
-                done();
-            });
-    });
+	inquirer.prompt([{
+		name: 'moduleName',
+		message: 'Module Name?',
+		default: 'module'
+	}], function(answers) {
+		gulp.src([__dirname + '/gulp/**', __dirname + '/gulp/.*'])
+			.pipe(template(answers))
+			.pipe(conflict('./'))
+			.pipe(gulp.dest('./'))
+			.pipe(install())
+			.on('finish', function() {
+				done();
+			});
+	});
 });
 
 gulp.task('module', function(done) {
@@ -43,23 +41,6 @@ gulp.task('module', function(done) {
             .pipe(rename(answers.moduleName + 'module.js'))
             .pipe(conflict('./'))
             .pipe(gulp.dest('./'))
-            .on('finish', function() {
-                done();
-            });
-    });
-});
-
-gulp.task('gulp', function(done) {
-    inquirer.prompt([{
-        name: 'moduleName',
-        message: 'Module Name?',
-        default: 'module'
-    }], function(answers) {
-        gulp.src([__dirname + '/gulp/**', __dirname + '/gulp/.*'])
-            .pipe(template(answers))
-            .pipe(conflict('./'))
-            .pipe(gulp.dest('./'))
-            .pipe(install())
             .on('finish', function() {
                 done();
             });
@@ -171,4 +152,23 @@ gulp.task('filter', function(done) {
     });
 });
 
-//TODO: Add Module name to individual template files via rename
+gulp.task('routes', function(done) {
+	inquirer.prompt([{
+		name: 'moduleName',
+		message: 'Module Name?',
+		default: 'module'
+	}, {
+		name: 'routeName',
+		message: 'Routes Name?',
+		default: 'routes'
+	}], function(answers) {
+		gulp.src(__dirname + '/templates/routes.js')
+			.pipe(template(answers))
+			.pipe(rename(answers.routeName + '.routes.js'))
+			.pipe(conflict('./'))
+			.pipe(gulp.dest('./'))
+			.on('finish', function() {
+				done();
+			});
+	});
+});

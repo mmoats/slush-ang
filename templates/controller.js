@@ -11,4 +11,4 @@
 				$scope.example = 'Parent controller';
 			}
 
-}());
+})();

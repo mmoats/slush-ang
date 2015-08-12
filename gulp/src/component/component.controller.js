@@ -5,10 +5,12 @@
 		.module('<%= moduleName %>')
 			.controller('<%= moduleName %>Controller', <%= moduleName %>);
 
-			<%= moduleName %>.$inject = ['$scope'];
+			//<%= moduleName %>.$inject = ['$scope'];
 
-			function <%= moduleName %>($scope) {
-				$scope.example = 'Parent controller';
+			function <%= moduleName %>() {
+				var vm = this;
+
+				vm.example = 'Parent controller';
 			}
 
-}());
+})();
