@@ -3,9 +3,9 @@
 
 	angular
 		.module('<%= moduleName %>')
-			.factory('<%= serviceName %>', < %= serviceName % >);
+			.factory('<%= serviceName %>', <%= serviceName %>);
 
-			function <%= serviceName % >() {
+			function <%= serviceName %>() {
 				return {
 
 				}

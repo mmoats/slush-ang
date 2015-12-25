@@ -3,9 +3,9 @@
 
 	angular
 		.module('<%= moduleName %>')
-			.factory('<%= factoryName %>', < %= factoryName % >);
+			.factory('<%= factoryName %>', <%= factoryName %>);
 
-			function <%= factoryName % >() {
+			function <%= factoryName %>() {
 				return {
 
 				}

@@ -3,9 +3,9 @@
 
 	angular
 		.module('<%= moduleName %>')
-			.factory('<%= filterName %>', < %= filterName % >);
+			.factory('<%= filterName %>', <%= filterName %>);
 
-			function <%= filterName % >() {
+			function <%= filterName %>() {
 				return {
 
 				}
